@@ -5,49 +5,52 @@
  */
 package pojo;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  *
  * @author danielmarchan
  */
-public class Patient {
+public class Patient implements Serializable {
     
     public enum GENDER{male,female};
     
     private String name;
     private String surname;
     private String id;
+    private UserInfo userinfo;
     private String email;
     private Date dob;
-    private GENDER sex; 
-    private int ECG[][]; 
-    private int EDA[][];
+   
 
-    public Patient(String name, String surname, String id, String email, Date dob, GENDER sex, int[][] ECG, int[][] EDA) {
+    
+    private GENDER sex; 
+    
+    
+
+    public Patient(String name, String surname, String id, UserInfo userinfo, String email, Date dob, GENDER sex) {
         this.name = name;
         this.surname = surname;
         this.id = id;
+        this.userinfo = userinfo;
         this.email = email;
         this.dob = dob;
         this.sex = sex;
-        this.ECG = ECG;
-        this.EDA = EDA;
     }
 
     public Patient() {
         this.name = null;
         this.surname = null;
         this.id = null;
+        this.userinfo = new UserInfo();
         this.email = null;
         this.dob = null;
         this.sex = null;
-        this.ECG = null;
-        this.EDA = null;
     }
     
     
- 
 
     public String getName() {
         return name;
@@ -66,9 +69,34 @@ public class Patient {
     }
 
     public String getId() {
-        return id;
+        return this.id;
     }
 
+    public UserInfo getUserinfo() {
+        return userinfo;
+    }
+
+    public void setUserinfo(UserInfo userinfo) {
+        this.userinfo = userinfo;
+    }
+    
+    public String getUserusername(){
+        return this.userinfo.getUsername();
+    }
+    
+    public void setUserusername(String username){
+        this.userinfo.setUsername(username);
+    }
+    
+    public String getUserpassword(){
+        return this.userinfo.getPassword();
+    }
+    
+    public void setUserPassword(String password){
+        this.userinfo.setPassword(password);
+    }
+
+    
     public void setId(String id) {
         this.id = id;
     }
@@ -97,28 +125,16 @@ public class Patient {
         this.sex = sex;
     }
 
-    public int[][] getECG() {
-        return ECG;
-    }
-
-    public void setECG(int[][] ECG) {
-        this.ECG = ECG;
-    }
-
-    public int[][] getEDA() {
-        return EDA;
-    }
-
-    public void setEDA(int[][] EDA) {
-        this.EDA = EDA;
-    }
 
     @Override
     public String toString() {
-        return "Patient{\n" + "name=" + name + "\n surname=" + surname + 
-                "\n id=" + id + "\n email=" + email + "\n dob=" + dob.getDay()+
-                "/"+dob.getMonth()+"/"+dob.getYear() + "\n sex=" + sex + "\n}";
+        return "Patient{" + "name=" + name + "\n, surname=" + surname + ", "
+                + "\nid=" + id + ", \nuserinfo=" + userinfo + ", \nemail=" + email + 
+                ", \ndob=" + dob +  "\nsex=" + sex + '}';
     }
+    
+
+   
     
     
     

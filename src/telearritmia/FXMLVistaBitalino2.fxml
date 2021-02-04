@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telearritmia.FXMLVistaBitalino2Controller">
+   <children>
+      <Accordion fx:id="steps" layoutX="22.0" layoutY="66.0">
+        <panes>
+          <TitledPane animated="false" text="Step 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Step 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Step 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <Label layoutX="22.0" layoutY="20.0" text="Steps">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="258.0" layoutY="72.0" text="MAC Address:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textMacAddress" layoutX="365.0" layoutY="67.0" prefHeight="27.0" prefWidth="202.0" promptText="20:18:06:13:01:09" />
+      <Text fill="#e80e0e" layoutX="369.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No connection with Bitalino" wrappingWidth="194.2060546875" />
+      <Button fx:id="recordBut" layoutX="593.0" layoutY="66.0" mnemonicParsing="false" onAction="#record" prefHeight="27.0" prefWidth="72.0" text="Record" />
+      <Button fx:id="but_SaveSend" layoutX="557.0" layoutY="549.0" mnemonicParsing="false" onAction="#savePatient" prefHeight="17.0" prefWidth="108.0" text="Save and send" />
+      <Button fx:id="but_Upload" layoutX="476.0" layoutY="549.0" mnemonicParsing="false" onAction="#loadPatient" text="Upload" />
+   </children>
+</AnchorPane>

@@ -18,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,6 +27,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import pojo.Patient.GENDER;
+import pojo.Window;
 
 /**
  * FXML Controller class
@@ -41,6 +43,8 @@ public class FXMLVistaPatientController implements Initializable {
     @FXML
     private TextField textID;
     @FXML
+    private TextField textPassword;
+    @FXML
     private TextField textEmail;
     @FXML
     private TextField textInfo;
@@ -54,12 +58,12 @@ public class FXMLVistaPatientController implements Initializable {
     private ChoiceBox<GENDER> gender;
     
     
+    
   
     @FXML
-    private void startBitalinoVista(ActionEvent event){
+    private void startBitalinoVista(ActionEvent event) {
         try {
-            
-            Parent parent = FXMLLoader.load(getClass().getResource("FXMLVistaBitalino.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("FXMLVistaBitalino2.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(parent);
             stage.setScene(scene);
@@ -67,7 +71,8 @@ public class FXMLVistaPatientController implements Initializable {
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(FXMLVistaPatientController.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Problems with vistaBitalino");
+            System.out.println("Problems with vista Bitalino");
+            System.out.println(ex);
         }
     }
     
@@ -76,6 +81,8 @@ public class FXMLVistaPatientController implements Initializable {
         Main.patient.setName(textName.getText());
         Main.patient.setSurname(textSurname.getText());
         Main.patient.setId(textID.getText());
+        Main.patient.setUserusername(textID.getText());
+        Main.patient.setUserPassword(textPassword.getText());
         Main.patient.setEmail(textEmail.getText());
         Main.patient.setSex(gender.getValue());
         Date date = new Date();
@@ -83,20 +90,38 @@ public class FXMLVistaPatientController implements Initializable {
         date.setMonth(dob.getValue().getMonthValue());
         date.setYear(dob.getValue().getYear());
         Main.patient.setDob(date);
-        //textInfo.setText(Main.patient.toString());
-        System.out.println(Main.patient.toString());
+        
+        System.out.println(Main.patient.toString());  
+        textInfo.setText("Remember that your ID is your username");
+         
+        try {
+            Main.objectOutput.writeObject(Main.patient);
+            Main.objectOutput.flush();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLVistaInitController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Problem sending patient");
+        }
     }
+    
     
     private void loadData(){
         gender.getItems().add(GENDER.male);
         gender.getItems().add(GENDER.female);
     }
-    
+ 
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadData();
+        Main.window.setWindow(Window.Windows_type.REGISTER);
+        try {
+            Main.objectOutput.writeObject(Main.window);
+            Main.objectOutput.flush();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLVistaInitController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Problem sending window");
+        }
  
     }    
     

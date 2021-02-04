@@ -8,11 +8,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="200.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="telearritmia.FXMLVistaInitController">
+<AnchorPane id="AnchorPane" prefHeight="147.0" prefWidth="202.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telearritmia.FXMLVistaInitController">
     <stylesheets>
         <URL value="@fxmlvistainit.css" />
     </stylesheets>
    <children>
-      <Button fx:id="initialization" layoutX="51.0" layoutY="28.0" mnemonicParsing="false" onAction="#startProgram" prefHeight="45.0" prefWidth="99.0" text="Start" textFill="#00020f" textOverrun="CLIP" />
+      <Button fx:id="login" layoutX="55.0" layoutY="28.0" mnemonicParsing="false" onAction="#startLogin" prefHeight="38.0" prefWidth="93.0" text="Login" textFill="#00020f" textOverrun="CLIP" />
+      <Button fx:id="register" layoutX="55.0" layoutY="81.0" mnemonicParsing="false" onAction="#startRegister" prefHeight="38.0" prefWidth="93.0" text="Register" />
    </children>
 </AnchorPane>

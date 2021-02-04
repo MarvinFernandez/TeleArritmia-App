@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import pojo.Window;
 
 /**
  * FXML Controller class
@@ -28,27 +29,53 @@ import javafx.stage.Stage;
 public class FXMLVistaInitController implements Initializable {
 
     @FXML
-    private Button initialization;
+    private Button login;
+    @FXML
+    private Button register;
+    
     
     
     @FXML
-    private void startProgram(ActionEvent event){
+    private void startLogin(ActionEvent event){
+        try {
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+            Parent parent = FXMLLoader.load(getClass().getResource("FXMLVistaLogin.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.setTitle("Username validation");
+            //Image ico = new Image("/.png");
+            //stage.getIcons().add(ico);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLVistaInitController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Problems with username validation Vista");
+            System.out.println(ex);
+        }    
+    }
+    
+     @FXML
+    private void startRegister(ActionEvent event){
         try {
             ((Node)(event.getSource())).getScene().getWindow().hide();
             Parent parent = FXMLLoader.load(getClass().getResource("FXMLVistaPatient.fxml"));
             Stage stage = new Stage();
             Scene scene = new Scene(parent);
             stage.setScene(scene);
-            stage.setTitle("Patient");
+            stage.setTitle("Register patient");
             //Image ico = new Image("/.png");
             //stage.getIcons().add(ico);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(FXMLVistaInitController.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Problems with patient Vista");
+            System.out.println("Problems with Register Vista");
+            System.out.println(ex);
         }
     }
     
+    
+    
+    /*veamos si se sube*/
     
     
     @Override

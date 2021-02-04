@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="telearritmia.FXMLVistaPatientController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telearritmia.FXMLVistaPatientController">
     <stylesheets>
         <URL value="@fxmlvistapatient.css" />
     </stylesheets>
@@ -15,17 +15,19 @@
       <TextField fx:id="textName" layoutX="90.0" layoutY="49.0" />
       <TextField fx:id="textSurname" layoutX="90.0" layoutY="93.0" />
       <TextField fx:id="textID" layoutX="90.0" layoutY="138.0" />
-      <TextField fx:id="textEmail" layoutX="90.0" layoutY="184.0" />
+      <TextField fx:id="textEmail" layoutX="358.0" layoutY="138.0" prefHeight="27.0" prefWidth="194.0" />
       <Label layoutX="26.0" layoutY="54.0" text="Name" />
       <Label layoutX="26.0" layoutY="98.0" text="Surname" />
       <Label layoutX="27.0" layoutY="143.0" text="ID" />
-      <Label layoutX="24.0" layoutY="189.0" text="Email" />
-      <Button fx:id="information" layoutX="214.0" layoutY="243.0" mnemonicParsing="false" onAction="#showInfo" text="Information" />
+      <Label layoutX="24.0" layoutY="189.0" text="Password" />
+      <Button fx:id="information" layoutX="210.0" layoutY="243.0" mnemonicParsing="false" onAction="#showInfo" text="Send information" />
       <TextField fx:id="textInfo" layoutX="81.0" layoutY="280.0" onAction="#showInfo" prefHeight="106.0" prefWidth="355.0" />
       <Button fx:id="bitalino" layoutX="488.0" layoutY="306.0" mnemonicParsing="false" onAction="#startBitalinoVista" text="Bitalino" />
       <DatePicker fx:id="dob" layoutX="358.0" layoutY="49.0" />
       <Label layoutX="309.0" layoutY="54.0" text="DOB" />
       <ChoiceBox fx:id="gender" layoutX="380.0" layoutY="93.0" prefWidth="150.0" />
       <Label layoutX="307.0" layoutY="98.0" text="Gender" />
+      <TextField fx:id="textPassword" layoutX="90.0" layoutY="184.0" />
+      <Label layoutX="307.0" layoutY="143.0" text="Email" />
    </children>
 </AnchorPane>
