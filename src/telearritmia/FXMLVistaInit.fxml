@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="100.0" prefWidth="200.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="telearritmia.FXMLVistaInitController">
+    <stylesheets>
+        <URL value="@fxmlvistainit.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="initialization" layoutX="51.0" layoutY="28.0" mnemonicParsing="false" onAction="#startProgram" prefHeight="45.0" prefWidth="99.0" text="Start" textFill="#00020f" textOverrun="CLIP" />
+   </children>
+</AnchorPane>
